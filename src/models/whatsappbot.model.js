@@ -8,7 +8,7 @@ class WhatsAppBot {
     constructor() {
         this.initialized = false;
         if (process.env.NODE_ENV === 'production') {
-            const client = new Client({
+            this.client = new Client({
                 puppeteer: {
                     executablePath: '/usr/bin/chromium-browser', // Specify the path to the installed Chromium browser
                     headless: true,
