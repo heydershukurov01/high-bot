@@ -11,18 +11,7 @@ class WhatsAppBot {
         if (process.env.NODE_ENV === 'production') {
             this.client = new Client({
                 puppeteer: {
-                    executablePath: '/usr/bin/chromium-browser', // Use the system-installed Chromium
                     headless: true,
-                    args: [
-                        '--no-sandbox',
-                        '--disable-setuid-sandbox',
-                        '--disable-dev-shm-usage',
-                        '--disable-accelerated-2d-canvas',
-                        '--no-first-run',
-                        '--no-zygote',
-                        '--single-process', // <- this one doesn't work in Windows
-                        '--disable-gpu'
-                    ]
                 },
                 authStrategy: new LocalAuth()
             });
