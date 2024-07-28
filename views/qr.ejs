@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe to WhatsApp Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            margin: 20px 0;
+        }
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            width: 100%;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+<div class="qr-container">
+    <h1>Subscribe to Our WhatsApp Bot</h1>
+    <p>Scan the QR code below to subscribe to our WhatsApp bot.</p>
+    <% if (url) { %>
+        <img src="<%= url %>" alt="QR Code" />
+    <% } else { %>
+        <p>QR code is not available at the moment. Please try again later.</p>
+    <% } %>
+</div>
+<div class="footer">
+    &copy; <%= new Date().getFullYear() %> High Door. All rights reserved.
+</div>
+</body>
+</html>
