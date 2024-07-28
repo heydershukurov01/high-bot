@@ -16,6 +16,7 @@
     "morgan": "~1.9.1",
     "openai": "^4.53.2",
     "puppeteer": "^22.14.0",
+    "puppeteer-core": "^22.14.0",
     "qrcode": "^1.5.3",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.25.0"
