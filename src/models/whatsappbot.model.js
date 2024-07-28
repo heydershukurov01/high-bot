@@ -165,37 +165,37 @@ class WhatsAppBot {
                 }
             ])
             try {
-                const responseJson = await AI.getChatGPTResponse(message.body);
-                if (responseJson) {
-                    if(responseJson.isElectrician) {
-                        // Retrieve the specific user from the database
-                        const targetWid = '994554736606@c.us';
-                        const mentionedUser = await Wuser.findOne({ wid: targetWid });
-                        const mentionMessage = `[BOT] Bu məsələ ilə əlaqədar @${mentionedUser.number} məşquldur. ${mentionedUser.name} Xahiş dəstək olasan!.`;
-                        message.reply(mentionMessage, undefined, {
-                            mentions: [targetWid]
-                        });
-                    }
-                    else if(responseJson.isTrading) {
-                        // Retrieve the specific user from the database
-                        const targetWid = '994777277750@c.us';
-                        const mentionedUser = await Wuser.findOne({ wid: targetWid });
-                        const mentionMessage = `[BOT] Bu məsələ ilə əlaqədar @${mentionedUser.number} məşquldur. ${mentionedUser.name} Xahiş dəstək olasan!.`;
-                        message.reply(mentionMessage, undefined, {
-                            mentions: [targetWid]
-                        });
-                    }
-                    else if(responseJson.isAdv) {
-                        const targetWid1 = '994554736606@c.us';
-                        const mentionedUser1 = await Wuser.findOne({ wid: targetWid1 });
-                        const targetWid2 = '994554736606@c.us';
-                        const mentionedUser2 = await Wuser.findOne({ wid: targetWid2 });
-                        const mentionMessage = `[BOT] Əziz dost işi evimiz kimi sevdiyimiz qrupumuza gətirməsək əəla olar. Nəzərinə çatdırım ki qrup daxilində Adminlərdən başqa reklam paylaşmaq qadağandır. Əgər paylaşımının reklam xarakterli olmadığını düşünürsənsə onda xahiş edirəm bu barədə Adminlərə məlumat verəsən. @${mentionedUser1.number} @${mentionedUser2.number}`;
-                        message.reply(mentionMessage, undefined, {
-                            mentions: [targetWid1, targetWid2]
-                        });
-                    }
-                }
+                // const responseJson = await AI.getChatGPTResponse(message.body);
+                // if (responseJson) {
+                //     if(responseJson.isElectrician) {
+                //         // Retrieve the specific user from the database
+                //         const targetWid = '994554736606@c.us';
+                //         const mentionedUser = await Wuser.findOne({ wid: targetWid });
+                //         const mentionMessage = `[BOT] Bu məsələ ilə əlaqədar @${mentionedUser.number} məşquldur. ${mentionedUser.name} Xahiş dəstək olasan!.`;
+                //         message.reply(mentionMessage, undefined, {
+                //             mentions: [targetWid]
+                //         });
+                //     }
+                //     else if(responseJson.isTrading) {
+                //         // Retrieve the specific user from the database
+                //         const targetWid = '994777277750@c.us';
+                //         const mentionedUser = await Wuser.findOne({ wid: targetWid });
+                //         const mentionMessage = `[BOT] Bu məsələ ilə əlaqədar @${mentionedUser.number} məşquldur. ${mentionedUser.name} Xahiş dəstək olasan!.`;
+                //         message.reply(mentionMessage, undefined, {
+                //             mentions: [targetWid]
+                //         });
+                //     }
+                //     else if(responseJson.isAdv) {
+                //         const targetWid1 = '994554736606@c.us';
+                //         const mentionedUser1 = await Wuser.findOne({ wid: targetWid1 });
+                //         const targetWid2 = '994554736606@c.us';
+                //         const mentionedUser2 = await Wuser.findOne({ wid: targetWid2 });
+                //         const mentionMessage = `[BOT] Əziz dost işi evimiz kimi sevdiyimiz qrupumuza gətirməsək əəla olar. Nəzərinə çatdırım ki qrup daxilində Adminlərdən başqa reklam paylaşmaq qadağandır. Əgər paylaşımının reklam xarakterli olmadığını düşünürsənsə onda xahiş edirəm bu barədə Adminlərə məlumat verəsən. @${mentionedUser1.number} @${mentionedUser2.number}`;
+                //         message.reply(mentionMessage, undefined, {
+                //             mentions: [targetWid1, targetWid2]
+                //         });
+                //     }
+                // }
             } catch (e) {
                 console.log(e);
             }
