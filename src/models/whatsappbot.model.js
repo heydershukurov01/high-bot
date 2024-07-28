@@ -7,9 +7,20 @@ const Message = require('../db/messages');
 class WhatsAppBot {
     constructor() {
         this.initialized = false;
-        this.client = new Client({
-            authStrategy: new LocalAuth()
-        });
+        if (process.env.NODE_ENV === 'production') {
+            const client = new Client({
+                puppeteer: {
+                    executablePath: '/usr/bin/chromium-browser', // Specify the path to the installed Chromium browser
+                    headless: true,
+                    args: ['--no-sandbox', '--disable-setuid-sandbox']
+                },
+                authStrategy: new LocalAuth()
+            });
+        } else {
+            this.client = new Client({
+                authStrategy: new LocalAuth()
+            });
+        }
         this.send = true;
         this.client.on('ready', () => {});
     }
