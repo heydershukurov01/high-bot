@@ -72,6 +72,7 @@ class WhatsAppBot {
     }
     // Method to initialize the WhatsApp client
     initialize() {
+        console.log('1');
         return new Promise((success, fail) => {
             try {
                 if (this.initialized) {
@@ -80,7 +81,9 @@ class WhatsAppBot {
                         success();
                     })
                 } else {
+                    console.log(2);
                     if (this.client) {
+                        console.log(3);
                         this.client.initialize().then(t => {
                             this.client.on('ready', () => {
                                 console.log('Ready');
@@ -90,6 +93,7 @@ class WhatsAppBot {
                             this.client.on('message', this.handleMessage.bind(this));
                         });
                     } else {
+                        console.log(4)
                         this.initilizer()
                         this.client.initialize().then(t => {
                             this.client.on('ready', () => {
