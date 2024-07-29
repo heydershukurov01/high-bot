@@ -17,6 +17,7 @@ class WhatsAppBot {
                         '--disable-dev-shm-usage',
                         '--disable-accelerated-2d-canvas',
                         '--no-first-run',
+                        '--no-sandbox',
                         '--no-zygote',
                         '--single-process',
                         '--disable-gpu',
