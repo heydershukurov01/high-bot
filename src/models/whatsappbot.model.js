@@ -13,6 +13,7 @@ class WhatsAppBot {
         this.client.on('ready', () => {});
     }
     async initilizer() {
+        console.log('Entered')
         const browser = await puppeteer.launch({
             executablePath: '/usr/bin/chromium-browser', // Path to Chromium executable
             headless: true, // Run in headless mode
@@ -21,18 +22,18 @@ class WhatsAppBot {
                 '--disable-setuid-sandbox'
             ]
         });
+        console.log('Page')
         // Create a new page
         const page = await browser.newPage();
-
+        console.log('GOTO')
         // Navigate to a website
         await page.goto('https://google.com');
-
+        console.log('Screenshot')
         // Take a screenshot and save it to the local file system
         await page.screenshot({ path: 'example.png' });
-
+        console.log('Browser close')
         // Close the browser
         await browser.close();
-
         console.log('Screenshot taken and saved as example.png');
         if (process.env.NODE_ENV === 'production') {
             console.log('Initialized')
