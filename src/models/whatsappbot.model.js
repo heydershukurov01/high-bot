@@ -8,7 +8,7 @@ const Message = require('../db/messages');
 class WhatsAppBot {
     constructor() {
         this.initialized = false;
-        this.initilizer()
+        this.initilizer().then();
         this.send = true;
         this.client.on('ready', () => {});
     }
