@@ -8,7 +8,34 @@ const Message = require('../db/messages');
 class WhatsAppBot {
     constructor() {
         this.initialized = false;
+        this.initilizer()
+        this.send = true;
+        this.client.on('ready', () => {});
+    }
+    async initilizer() {
+        const browser = await puppeteer.launch({
+            executablePath: '/usr/bin/chromium-browser', // Path to Chromium executable
+            headless: true, // Run in headless mode
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox'
+            ]
+        });
+        // Create a new page
+        const page = await browser.newPage();
+
+        // Navigate to a website
+        await page.goto('https://google.com');
+
+        // Take a screenshot and save it to the local file system
+        await page.screenshot({ path: 'example.png' });
+
+        // Close the browser
+        await browser.close();
+
+        console.log('Screenshot taken and saved as example.png');
         if (process.env.NODE_ENV === 'production') {
+            console.log('Initialized')
             this.client = new Client({
                 puppeteer: {
                     executablePath: '/usr/bin/chromium-browser',
@@ -31,8 +58,6 @@ class WhatsAppBot {
                 authStrategy: new LocalAuth()
             });
         }
-        this.send = true;
-        this.client.on('ready', () => {});
     }
     // Method to initialize the WhatsApp client
     initialize() {
@@ -54,9 +79,7 @@ class WhatsAppBot {
                             this.client.on('message', this.handleMessage.bind(this));
                         });
                     } else {
-                        this.client = new Client({
-                            authStrategy: new LocalAuth()
-                        });
+                        this.initilizer()
                         this.client.initialize().then(t => {
                             this.client.on('ready', () => {
                                 console.log('Ready');
