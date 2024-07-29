@@ -51,14 +51,15 @@ class WhatsAppBot {
                     executablePath: '/usr/bin/chromium-browser',
                     headless: true,
                     args: [
+                        '--no-sandbox',
+                        '--disable-setuid-sandbox',
                         '--disable-dev-shm-usage',
                         '--disable-accelerated-2d-canvas',
                         '--no-first-run',
-                        '--no-sandbox',
                         '--no-zygote',
                         '--single-process',
                         '--disable-gpu',
-                        '--user-data-dir=/home/bot/chromium-sandbox'
+                        '--user-data-dir=/root/chromium-data'
                     ]
                 },
                 authStrategy: new LocalAuth()
