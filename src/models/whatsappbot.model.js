@@ -27,7 +27,7 @@ class WhatsAppBot {
                 '--no-zygote',
                 '--single-process',
                 '--disable-gpu',
-                '--user-data-dir=/home/bot/chromium-sandbox'
+                '--user-data-dir=/root/chromium-data'
             ]
         });
         console.log('Page')
