@@ -48,6 +48,15 @@ exports.getMessages = (req, res) => {
         })
     })
 }
+exports.tester = (req, res) => {
+    console.log('Entered');
+    bot.tester().then(response => {
+        res.json({
+            err: 'JSON',
+            status: 200,
+        })
+    })
+}
 exports.listOfGroupMembers = (req, res) => {
     console.log('Entered!');
     bot.initialize().then(() => {

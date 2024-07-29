@@ -11,5 +11,6 @@ router.get('/api/subscribe/terminal', ConnectionController.subscribeTerminal);
 router.get('/api/initialize', ConnectionController.initialize);
 router.get('/api/analyze', ConnectionController.getMessages);
 router.get('/api/members', ConnectionController.listOfGroupMembers);
+router.get('/api/test', ConnectionController.tester)
 
 module.exports = router;

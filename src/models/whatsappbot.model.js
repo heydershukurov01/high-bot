@@ -13,14 +13,21 @@ class WhatsAppBot {
             this.client.on('ready', () => {});
         });
     }
-    async initilizer() {
+    async tester() {
         console.log('Entered')
         const browser = await puppeteer.launch({
             executablePath: '/usr/bin/chromium-browser', // Path to Chromium executable
             headless: true, // Run in headless mode
             args: [
                 '--no-sandbox',
-                '--disable-setuid-sandbox'
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-accelerated-2d-canvas',
+                '--no-first-run',
+                '--no-zygote',
+                '--single-process',
+                '--disable-gpu',
+                '--user-data-dir=/home/bot/chromium-sandbox'
             ]
         });
         console.log('Page')
@@ -35,7 +42,8 @@ class WhatsAppBot {
         console.log('Browser close')
         // Close the browser
         await browser.close();
-        console.log('Screenshot taken and saved as example.png');
+    }
+    async initilizer() {
         if (process.env.NODE_ENV === 'production') {
             console.log('Initialized')
             this.client = new Client({
