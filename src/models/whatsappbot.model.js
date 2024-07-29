@@ -85,7 +85,9 @@ class WhatsAppBot {
                     if (this.client) {
                         console.log(3);
                         this.client.initialize().then(t => {
+                            console.log(10)
                             this.client.on('ready', () => {
+                                console.log(11)
                                 console.log('Ready');
                                 this.initialized = true;
                                 success();
