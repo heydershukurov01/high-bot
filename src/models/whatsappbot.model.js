@@ -16,7 +16,6 @@ class WhatsAppBot {
     async tester() {
         console.log('Entered')
         const browser = await puppeteer.launch({
-            executablePath: '/usr/bin/chromium-browser', // Path to Chromium executable
             headless: true, // Run in headless mode
             args: [
                 '--no-sandbox',
@@ -48,7 +47,6 @@ class WhatsAppBot {
             console.log('Initialized')
             this.client = new Client({
                 puppeteer: {
-                    executablePath: '/usr/bin/chromium-browser',
                     headless: true,
                     args: [
                         '--no-sandbox',
