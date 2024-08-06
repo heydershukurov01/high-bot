@@ -32,19 +32,9 @@ class WhatsAppBot {
         await browser.close();
     }
     async initilizer() {
-        if (process.env.NODE_ENV === 'production') {
-            console.log('Initialized')
-            this.client = new Client({
-                puppeteer: {
-
-                },
-                authStrategy: new LocalAuth()
-            });
-        } else {
             this.client = new Client({
                 authStrategy: new LocalAuth()
             });
-        }
     }
     // Method to initialize the WhatsApp client
     initialize() {
