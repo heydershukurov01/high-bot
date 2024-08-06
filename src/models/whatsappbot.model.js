@@ -16,18 +16,7 @@ class WhatsAppBot {
     async tester() {
         console.log('Entered')
         const browser = await puppeteer.launch({
-            headless: true, // Run in headless mode
-            args: [
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--disable-dev-shm-usage',
-                '--disable-accelerated-2d-canvas',
-                '--no-first-run',
-                '--no-zygote',
-                '--single-process',
-                '--disable-gpu',
-                '--user-data-dir=/root/chromium-data'
-            ]
+
         });
         console.log('Page')
         // Create a new page
@@ -47,18 +36,7 @@ class WhatsAppBot {
             console.log('Initialized')
             this.client = new Client({
                 puppeteer: {
-                    headless: true,
-                    args: [
-                        '--no-sandbox',
-                        '--disable-setuid-sandbox',
-                        '--disable-dev-shm-usage',
-                        '--disable-accelerated-2d-canvas',
-                        '--no-first-run',
-                        '--no-zygote',
-                        '--single-process',
-                        '--disable-gpu',
-                        '--user-data-dir=/root/chromium-data'
-                    ]
+
                 },
                 authStrategy: new LocalAuth()
             });
