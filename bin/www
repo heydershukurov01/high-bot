@@ -87,4 +87,8 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log({
+    port: process.env.PORT,
+    key: process.env.OPENAI_API_KEY
+  })
 }
